@@ -1,38 +1,10 @@
 ---
-import { PROJECTS } from '../../data/projects_data.astro'
+import {PROJECTS} from '../../data/projects_data.astro'
+import ProjectItem from "./ProjectItem.astro";
 ---
 
 {
-    PROJECTS.map(
-        ({ title, description, link, github, background, image, tags }) => (
-            <article class="grid gap-4 sm:gap-7 md:grid-cols-2 group">
-                <a href={link} target="_blank" rel="noreferrer">
-                    <div
-                        class="w-[350px] h-[226px] bg-gray-700/50 bg-cover bg-center relative rounded-xl overflow-hidden"
-                        style={`background-image: url(${background});`}>
-                        <img
-                            class="absolute rounded-lg duration-500 ease transition-transform translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7"
-                            src={image}
-                            alt={`Captura de pantalla del proyecto ${image}`}
-                            style="max-width: 100%; max-height: 100%;"
-                        />
-                    </div>
-                </a>
-                <div class="flex flex-col gap-2.5 justify-center">
-                    <h3 class="font-bold text-xl text-[#8BD49C]">{title}</h3>
-                    <p class="text-xs md:text-sm lg:text-base text-gray-400 text-pretty">{description}</p>
-                    <ul class="flex gap-2 items-center mb-1">
-                        {tags.map((tag) => (
-                            <li class="relative group/tooltip">
-                                <tag.icon class="size-7" />
-                                <span class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap bg-white text-gray-700 before:content-[''] before:absolute before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:bg-white before:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3">
-                                    {tag.name}
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </article>
-        ),
-    )
-}
+    PROJECTS.map((project) =>
+    <ProjectItem {...project}/>
+        )
+    }
