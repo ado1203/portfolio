@@ -1,7 +1,16 @@
 ---
-const {id, class: className} = Astro.props;
+import BriefcaseIcon from "./icons/Briefcase.astro";
+const {id, class: className, title} = Astro.props;
 ---
 
 <section id={id} class={`section flex gap-5 ${className}`}>
+    {
+        title && (
+                    <header class="font-bold text-2xl text-gray-100 flex items-center gap-3">
+                        <slot name="icon"/>
+                        <h2>{title}</h2>
+                    </header>
+        )
+    }
     <slot/>
 </section>

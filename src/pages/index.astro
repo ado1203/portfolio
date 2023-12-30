@@ -1,79 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Badge from "../components/Badge.astro";
-import LinkedInIcon from "../components/icons/LinkedIn.astro";
-import GitHubIcon from "../components/icons/GitHub.astro";
-import SocialPill from "../components/SocialPill.astro";
-import Mail from "../components/icons/Mail.astro";
 import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import BriefcaseIcon from "../components/icons/Briefcase.astro";
 import StarIcon from "../components/icons/Star.astro";
 import Projects from "../components/Projects.astro";
+import Home from "../components/Home.astro";
 ---
 
 <Layout
         title="Adonay Gutiérrez | Portfolio | Desarrollador y Programador Web"
         descripction="Contrata a Adonay para crear tu aplicación web. Desarrollador Web.">
     <main class="flex flex-col max-w-3xl mx-auto px-5 gap-16">
-        <SectionContainer class="flex-row items-center">
-            <img
-                    class="w-44 h-44 bg-gray-700/60 rounded-full"
-                    src="/adonay.webp"
-                    alt="Adonay"
-            />
-            <article class="flex flex-col items-center gap-3">
-                <div class="flex flex-col items-left gap-2">
-                    <h1
-                            class="text-2xl font-bold text-slate-100 flex flex-row gap-x-4"
-                    >
-                        Adonay Gutiérrez <a
-                            href="https://www.linkedin.com/in/adonay-guti%C3%A9rrez-77a7a91b2/"
-                            target="_blank"
-                            rel="noopener"
-                            class="flex justify-center items-center"
-                    >
-                        <Badge>Buscando trabajo</Badge>
-                    </a>
-                    </h1>
-                    <p class="text-slate-300 max-w-xl rounded-2xl">
-                        Soy un <span class="text-yellow-200/90"
-                    >Desarrollador Web</span
-                    > apasionado. <span class="text-blue-400/90">
-							De San Salvador, El Salvador.
-						</span>
-                    </p>
-                </div>
-                <nav class="flex gap-3">
-                    <SocialPill href="https://www.linkedin.com/in/adonay-guti%C3%A9rrez-77a7a91b2/">
-                        <LinkedInIcon class="mr-2 size-4"/>
-                        LinkedIn
-                    </SocialPill>
-                    <SocialPill href="https://github.com/ado1203">
-                        <GitHubIcon class="mr-2 size-4"/>
-                        GitHub
-                    </SocialPill>
-                    <SocialPill href="mailto:adonaygutierrez50@gmail.com">
-                        <Mail class="mr-2 size-5"/>
-                        adonaygutierrez50@gmail.com
-                    </SocialPill>
-                </nav>
-            </article>
+        <SectionContainer id="home" class="items-center pt-16">
+            <Home/>
         </SectionContainer>
         <hr class="h-px bg-gray-200 border-0 dark:bg-gray-700">
-        <SectionContainer id="experience" class="w-full flex-col">
-            <header class="font-bold text-2xl dark:text-gray-100 flex items-center gap-3">
-                <BriefcaseIcon class="size-8"/>
-                <h2>Experiencia</h2>
-            </header>
+        <SectionContainer id="experience" title="Experiencia" class="w-full flex-col">
+            <BriefcaseIcon class="size-8" slot="icon"/>
             <Experience/>
         </SectionContainer>
-        <SectionContainer id="projects" class="w-full flex-col">
-            <header class="font-bold text-2xl dark:text-gray-100 flex items-center gap-3">
-                <StarIcon class="size-8"/>
-                <h2>Proyectos</h2>
-            </header>
+        <SectionContainer id="projects" title="Proyectos" class="w-full flex-col">
+            <StarIcon class="size-8" slot="icon"/>
             <Projects/>
         </SectionContainer>
     </main>
