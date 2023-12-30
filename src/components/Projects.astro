@@ -1,0 +1,80 @@
+---
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: NextJS,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        class: "bg-[#003159] text-white",
+        icon: Tailwind,
+    },
+}
+
+const PROJECTS = [
+    {
+        title: "Project 1",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vitae tincidunt ultricies, nunc nisl ultricies nunc.",
+        link: "#",
+        github: "#",
+        background: "/projects/blue_gradient_bg.webp",
+        image: "/projects/flowbite.webp",
+        tags: ["tag1", "tag2", "tag3"],
+    },
+    {
+        title: "Project 2",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vitae tincidunt ultricies, nunc nisl ultricies nunc.",
+        link: "#",
+        github: "#",
+        background: "/projects/pink_gradient_bg.webp",
+        image: "/projects/svgl.webp",
+        tags: ["tag1", "tag2", "tag3"],
+    },
+    {
+        title: "Project 3",
+        description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vitae tincidunt ultricies, nunc nisl ultricies nunc.",
+        link: "#",
+        github: "#",
+        background: "/projects/violet_gradient_bg.webp",
+        image: "/projects/fontsource.webp",
+        tags: ["tag1", "tag2", "tag3"],
+    },
+];
+---
+
+{
+    PROJECTS.map(
+        ({ title, description, link, github, background, image, tags }) => (
+            <article class="grid gap-4 sm:gap-7 md:grid-cols-2 group">
+                <a href={link} target="_blank" rel="noreferrer">
+                    <div
+                        class="w-[350px] h-[226px] bg-gray-700/50 bg-cover bg-center relative rounded-xl overflow-hidden"
+                        style={`background-image: url(${background});`}>
+                        <img
+                            class="absolute rounded-lg duration-500 ease transition-transform translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7"
+                            src={image}
+                            alt={`Captura de pantalla del proyecto ${image}`}
+                            style="max-width: 100%; max-height: 100%;"
+                        />
+                    </div>
+                </a>
+                <div class="flex flex-col gap-2.5 justify-center">
+                    <h3 class="font-bold text-lg text-violet-300">{title}</h3>
+                    <p class="tex-slate-300 text-base font-normal text-pretty">{description}</p>
+                    <ul class="flex">
+                        {tags.map((tag) => (
+                            <li>{tag}</li>
+                        ))}
+                    </ul>
+                </div>
+            </article>
+        ),
+    )
+}
