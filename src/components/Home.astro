@@ -1,0 +1,51 @@
+---
+import Badge from "./Badge.astro";
+import LinkedInIcon from "./icons/LinkedIn.astro";
+import GitHubIcon from "./icons/GitHub.astro";
+import MailIcon from "./icons/Mail.astro";
+import DownloadIcon from "./icons/Download.astro";
+import SocialPill from "./SocialPill.astro";
+---
+
+<img
+        class="size-44 bg-gray-700/60 rounded-full"
+        src="/adonay.webp"
+        alt="Adonay"
+/>
+<article class="flex flex-col gap-3">
+    <div class="flex flex-col gap-2">
+        <h1
+                class="text-4xl font-bold text-slate-100 flex flex-row gap-x-4"
+        >
+            Adonay Gutiérrez <a
+                href="https://www.linkedin.com/in/adonay-guti%C3%A9rrez-77a7a91b2/"
+                target="_blank"
+                rel="noopener"
+                class="flex justify-center items-center"
+        >
+            <Badge>Buscando trabajo</Badge>
+        </a>
+        </h1>
+        <p class="text-slate-300 max-w-xl rounded-2xl">
+            Soy un <span class="text-[#8BD49C]"
+        >Desarrollador Web</span
+        > apasionado. <span class="text-[#70E1E8]">
+							De San Salvador, El Salvador.
+						</span>
+        </p>
+    </div>
+    <nav class="flex gap-3 flex-wrap">
+        <SocialPill href="https://www.linkedin.com/in/adonay-guti%C3%A9rrez-77a7a91b2/">
+            <LinkedInIcon class="size-4"/>
+            LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/ado1203">
+            <GitHubIcon class="size-4"/>
+            GitHub
+        </SocialPill>
+        <SocialPill href="">
+            <DownloadIcon class="size-5"/>
+            Descargar CV
+        </SocialPill>
+    </nav>
+</article>
