@@ -1,6 +1,9 @@
 ---
 import {JSX} from "astro/jsx-runtime";
 import TagTooltip from "./ui/TagTooltip.astro";
+import SocialPill from "./ui/SocialPill.astro";
+import CodeIcon from "./icons/Code.astro";
+import LinkIcon from "./icons/Link.astro";
 
 interface props {
     title: string
@@ -41,5 +44,15 @@ const {title, description, image, background, webSiteURL, codeURL, tags} = Astro
                     </TagTooltip>
             ))}
         </ul>
+        <div class="flex justify-start gap-3">
+            <SocialPill href={codeURL}>
+                <CodeIcon class="size-5"/>
+                Codigo
+            </SocialPill>
+            <SocialPill href={webSiteURL}>
+                <LinkIcon class="size-5"/>
+                Sitio web
+            </SocialPill>
+        </div>
     </div>
 </article>
