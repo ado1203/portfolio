@@ -1,4 +1,7 @@
 ---
+import {JSX} from "astro/jsx-runtime";
+import TagTooltip from "./ui/TagTooltip.astro";
+
 interface props {
     title: string
     description: string
@@ -6,7 +9,10 @@ interface props {
     background: string
     webSiteURL?: string,
     codeURL?: string,
-    tags: any,
+    tags: Array<{
+        name: string;
+        Icon: JSX.Element
+    }>
 }
 
 const {title, description, image, background, webSiteURL, codeURL, tags} = Astro.props;
@@ -29,13 +35,10 @@ const {title, description, image, background, webSiteURL, codeURL, tags} = Astro
         <h3 class="font-bold text-xl text-[#8BD49C]">{title}</h3>
         <p class="text-xs md:text-sm lg:text-base text-gray-400 text-pretty">{description}</p>
         <ul class="flex gap-2 items-center mb-1">
-            {tags.map((tag) => (
-                    <li class="relative group/tooltip">
-                        <tag.icon class="size-7"/>
-                        <span class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap bg-white text-gray-700 before:content-[''] before:absolute before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:bg-white before:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3">
-                                    {tag.name}
-                                </span>
-                    </li>
+            {tags.map(({name, Icon}) => (
+                    <TagTooltip name={name}>
+                        <Icon class="size-6"/>
+                    </TagTooltip>
             ))}
         </ul>
     </div>
