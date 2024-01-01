@@ -1,11 +1,13 @@
 ---
-const {name} = Astro.props;
+const {text, class: className} = Astro.props;
 ---
-
 <div class="relative group/tooltip">
-    <slot/>
+    <a class="py-2.5 px-4 flex justify-center items-center bg-gray-800  cursor-pointer text-white rounded-lg border border-gray-600 shadow-sm text-sm font-medium transition hover:bg-gray-700 hover:border-gray-600"
+       {...Astro.props}>
+        <slot/>
+    </a>
     <span class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs font-medium left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap bg-white text-gray-700 before:content-[''] before:absolute before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:bg-white before:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3"
           role="tooltip">
-        {name}
+        {text}
     </span>
 </div>

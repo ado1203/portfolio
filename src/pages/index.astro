@@ -4,8 +4,10 @@ import Experience from "../components/Experience.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import BriefcaseIcon from "../components/icons/Briefcase.astro";
 import StarIcon from "../components/icons/Star.astro";
+import MailIcon from "../components/icons/Mail.astro";
 import Projects from "../components/Projects.astro";
 import Home from "../components/Home.astro";
+import Mail from "../components/Mail.astro";
 ---
 
 <Layout
@@ -23,6 +25,10 @@ import Home from "../components/Home.astro";
         <SectionContainer id="projects" title="Proyectos" class="w-full flex-col">
             <StarIcon class="size-8" slot="icon"/>
             <Projects/>
+        </SectionContainer>
+        <SectionContainer id="contact" title="Contacto" class="w-full flex-col">
+            <MailIcon class="size-8" slot="icon"/>
+            <Mail/>
         </SectionContainer>
     </main>
 </Layout>
