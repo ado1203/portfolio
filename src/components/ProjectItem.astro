@@ -1,21 +1,20 @@
 ---
-import {JSX} from "astro/jsx-runtime";
 import TagTooltip from "./ui/TagTooltip.astro";
 import SocialPill from "./ui/SocialPill.astro";
 import CodeIcon from "./icons/Code.astro";
 import LinkIcon from "./icons/Link.astro";
 
-interface props {
-    title: string
-    description: string
-    image: string
-    background: string
-    webSiteURL?: string,
-    codeURL?: string,
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+    background: string;
+    webSiteURL?: string;
+    codeURL?: string;
     tags: Array<{
         name: string;
-        Icon: JSX.Element
-    }>
+        Icon: any;
+    }>;
 }
 
 const {title, description, image, background, webSiteURL, codeURL, tags} = Astro.props;
