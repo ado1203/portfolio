@@ -44,14 +44,22 @@ const {title, description, image, background, webSiteURL, codeURL, tags} = Astro
             ))}
         </ul>
         <div class="flex justify-start gap-3">
-            <SocialPill href={codeURL}>
-                <CodeIcon class="size-5"/>
-                Codigo
-            </SocialPill>
-            <SocialPill href={webSiteURL}>
-                <LinkIcon class="size-5"/>
-                Sitio web
-            </SocialPill>
+            {
+                codeURL && (
+                            <SocialPill href={codeURL}>
+                                <CodeIcon class="size-5"/>
+                                Codigo
+                            </SocialPill>
+                )
+            }
+            {
+                webSiteURL && (
+                            <SocialPill href={webSiteURL}>
+                                <LinkIcon class="size-5"/>
+                                Sitio Web
+                            </SocialPill>
+                )
+            }
         </div>
     </div>
 </article>
