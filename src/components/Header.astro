@@ -1,9 +1,13 @@
-<header class="sticky top-0 w-full z-10 p-4 backdrop-blur-lg bg-opacity-80 shadow-xl">
-    <nav class="flex justify-center items-center mx-auto text-white/80 gap-4 lg:gap-8">
-        <a href="#home">Inicio</a>
-        <a href="#experience">Experiencia</a>
-        <a href="#projects">Proyectos</a>
-        <a href="#aboutme">Sobre mí</a>
-        <a href="#contact">Contacto</a>
+---
+import NavbarItem from "./NavbarItem.astro";
+---
+
+<header class="flex justify-center items-center sticky top-0 w-full mx-auto p-4 z-10">
+    <nav class="flex justify-center items-center py-3 px-5 backdrop-blur-lg bg-slate-300/10 border border-white border-opacity-20 rounded-full text-white/90 gap-4 lg:gap-8">
+        <NavbarItem href="#top">Inicio</NavbarItem>
+        <NavbarItem href="#experience">Experiencia</NavbarItem>
+        <NavbarItem href="#projects">Proyectos</NavbarItem>
+        <NavbarItem href="#aboutme">Sobre mi</NavbarItem>
+        <NavbarItem href="#contact">Contacto</NavbarItem>
     </nav>
 </header>
