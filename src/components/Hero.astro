@@ -7,7 +7,7 @@ import SocialPill from "./ui/SocialPill.astro";
 ---
 
 <img
-        class="size-44 bg-gray-700/60 rounded-full"
+        class="size-44 rounded-full shadow-lg bg-gray-700/60 drop-shadow-2xl"
         src="/adonay.webp"
         alt="Adonay"
 />
@@ -22,14 +22,14 @@ import SocialPill from "./ui/SocialPill.astro";
                 rel="noopener"
                 class="flex justify-center items-center"
         >
-            <Badge color="green">Buscando trabajo</Badge>
+            <Badge color="green" class="hover:scale-105 transition ease-in">Buscando trabajo</Badge>
         </a>
         </h1>
-        <p class="text-slate-300 max-w-xl rounded-2xl">
-            Soy un <span class="text-primary-color"
-        >Desarrollador Web</span
+        <p class="text-slate-300 max-w-xl rounded-2xl text-pretty">
+            <span class="text-primary-color">Desarrollador Web</span
         > apasionado.
-            <span class="text-[#70E1E8]">De San Salvador, El Salvador.</span>
+            <span class="text-[#70E1E8]">De San Salvador, El Salvador. </span>
+            Especializado en crear aplicaciones únicas
         </p>
     </div>
     <nav class="flex gap-3 flex-wrap">

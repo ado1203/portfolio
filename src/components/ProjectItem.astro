@@ -1,65 +1,70 @@
 ---
 import TagTooltip from "./ui/TagTooltip.astro";
-import SocialPill from "./ui/SocialPill.astro";
 import CodeIcon from "./icons/Code.astro";
 import LinkIcon from "./icons/Link.astro";
+import LinkButton from "./ui/LinkButton.astro";
 
 interface Props {
     title: string;
     description: string;
     image: string;
     background: string;
-    webSiteURL?: string;
-    codeURL?: string;
+    link?: string;
+    code?: string;
     tags: Array<{
-        name: string;
         Icon: any;
+        name: string;
     }>;
 }
 
-const {title, description, image, background, webSiteURL, codeURL, tags} = Astro.props;
+const { title, description, image, background, link, code, tags } = Astro.props;
 ---
 
-<article class="grid gap-4 sm:gap-7 md:grid-cols-2 group">
-    <a href={webSiteURL} target="_blank" rel="noreferrer">
-        <div
-                class="w-[350px] h-[226px] bg-gray-700/50 bg-cover bg-center relative rounded-xl overflow-hidden"
-                style={`background-image: url(${background});`}>
-            <img
-                    class="absolute rounded-lg duration-500 ease transition-transform translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7"
-                    src={image}
-                    alt={`Captura de pantalla del proyecto ${image}`}
-                    style="max-width: 100%; max-height: 100%;"
-            />
-        </div>
-    </a>
+<article class="group grid gap-4 sm:gap-7 md:grid-cols-2">
+    <div
+        class={`relative w-[350px] h-[226px] bg-gray-700/50 bg-cover bg-center rounded-xl overflow-hidden`}
+        style={`background-image: url(${background});`}
+    >
+        <img
+            class="absolute rounded-lg duration-500 ease transition translate-x-9 translate-y-9
+                    group-hover:translate-x-7 group-hover:translate-y-7"
+            loading="lazy"
+            src={image}
+            alt={`Captura de pantalla del proyecto ${image}`}
+        />
+    </div>
+
     <div class="flex flex-col gap-2.5 justify-center">
         <h3 class="font-bold text-xl text-primary-color">{title}</h3>
-        <p class="text-xs md:text-sm lg:text-base text-gray-400 text-pretty">{description}</p>
+        <p class="text-xs md:text-sm lg:text-base text-gray-400 text-pretty">
+            {description}
+        </p>
         <ul class="flex gap-2 items-center mb-1">
-            {tags.map(({name, Icon}) => (
+            {
+                tags.map(({ name, Icon }) => (
                     <TagTooltip name={name}>
-                        <Icon class="size-6"/>
+                        <Icon class="size-6" />
                     </TagTooltip>
-            ))}
+                ))
+            }
         </ul>
-        <div class="flex justify-start gap-3">
+        <footer class="flex justify-start gap-3">
             {
-                codeURL && (
-                            <SocialPill href={codeURL}>
-                                <CodeIcon class="size-5"/>
-                                Codigo
-                            </SocialPill>
+                code && (
+                    <LinkButton href={code}>
+                        <CodeIcon class="size-5" />
+                        Codigo
+                    </LinkButton>
                 )
             }
             {
-                webSiteURL && (
-                            <SocialPill href={webSiteURL}>
-                                <LinkIcon class="size-5"/>
-                                Sitio Web
-                            </SocialPill>
+                link && (
+                    <LinkButton href={link}>
+                        <LinkIcon class="size-5" />
+                        Sitio Web
+                    </LinkButton>
                 )
             }
-        </div>
+        </footer>
     </div>
 </article>

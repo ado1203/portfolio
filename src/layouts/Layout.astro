@@ -1,6 +1,6 @@
 ---
-// Supports weights 100-900
 import "@fontsource-variable/onest";
+
 import Header from "../components/Header.astro";
 interface Props {
     title: string;
@@ -20,27 +20,26 @@ const {title, description} = Astro.props;
     <meta name="generator" content={Astro.generator}/>
     <title>{title}</title>
 </head>
-<body>
+<body class="relative text-black dark:text-white">
 <Header/>
 <slot/>
-</body>
-</html>
 <style is:global>
     :root {
         color-scheme: light dark;
-        background-color: #1d252c;
     }
 
     html {
-        font-family: "Onest Variable", sans-serif;
+        font-family: "Onest Variable", -apple-system, system-ui,sans-serif;
         scroll-behavior: smooth;
     }
 
     body {
+        background-color: #1d252c;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-        padding-bottom: 3rem;
+        overscroll-behavior: none;
+        padding-bottom: 2rem;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -49,3 +48,5 @@ const {title, description} = Astro.props;
         }
     }
 </style>
+</body>
+</html>

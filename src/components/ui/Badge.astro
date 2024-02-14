@@ -10,7 +10,7 @@ interface Props {
         | "purple"
         | "pink";
 }
-const {color = "blue"} = Astro.props;
+const {color = "blue", class: CustomClass} = Astro.props;
 
 const COLORS_CLASSES = {
     blue: "bg-blue-100 text-blue-800 dark:bg-gray-700 dark:text-blue-400 border-blue-400",
@@ -30,6 +30,6 @@ const COLORS_CLASSES = {
 const className = `text-xs font-medium me-2 px-2.5 py-0.5 rounded-full ${COLORS_CLASSES[color]}`;
 ---
 
-<span class={className}>
+<span class=`${className} ${CustomClass}`>
     <slot/>
 </span>
