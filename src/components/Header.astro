@@ -1,13 +1,27 @@
 ---
-import NavbarItem from "./NavbarItem.astro";
+const navItems = [
+    { title: "Experiencia", label: "experience", url: "/#experience" },
+    { title: "Proyectos", label: "projects", url: "/#projects" },
+    { title: "Sobre mi", label: "aboutme", url: "/#aboutme" },
+    { title: "Contacto", label: "contact", url: "/#contact" },
+];
 ---
 
-<header class="flex justify-center items-center sticky top-0 w-full mx-auto p-4 z-10">
-    <nav class="flex justify-center items-center py-3 px-5 backdrop-blur-lg bg-slate-300/10 border border-white border-opacity-20 rounded-full text-white/90 gap-4 lg:gap-8">
-        <NavbarItem href="#top">Inicio</NavbarItem>
-        <NavbarItem href="#experience">Experiencia</NavbarItem>
-        <NavbarItem href="#projects">Proyectos</NavbarItem>
-        <NavbarItem href="#aboutme">Sobre mi</NavbarItem>
-        <NavbarItem href="#contact">Contacto</NavbarItem>
+<header
+    class="fixed top-0 flex justify-center items-center w-full mx-auto mt-3 z-30"
+>
+    <nav
+        class="flex justify-center items-center py-3 px-5 text-base font-medium backdrop-blur-lg bg-slate-300/10 border border-white border-opacity-20 rounded-full text-white/90 gap-4 lg:gap-8"
+    >
+        {
+            navItems.map((item) => (
+                <a class="hover:text-primary-color transition"
+                   aria-label={`Go to ${item.label} section`}
+                   href={item.url}
+                >
+                    {item.title}
+                </a>
+            ))
+        }
     </nav>
 </header>

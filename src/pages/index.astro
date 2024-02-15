@@ -1,32 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Experience from "../components/Experience.astro";
-import SectionContainer from "../components/SectionContainer.astro";
+
+import AboutMe from "../components/AboutMe.astro";
 import BriefcaseIcon from "../components/icons/Briefcase.astro";
-import StarIcon from "../components/icons/Star.astro";
+import Experience from "../components/Experience.astro";
+import Hero from "../components/Hero.astro";
+import Line from "../components/ui/Line.astro";
+import Mail from "../components/Mail.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import Projects from "../components/Projects.astro";
-import Home from "../components/Home.astro";
-import Mail from "../components/Mail.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import StarIcon from "../components/icons/Star.astro";
+import UserIcon from "../components/icons/User.astro";
 ---
 
 <Layout
         title="Adonay Gutiérrez | Portfolio | Desarrollador y Programador Web"
         description="Contrata a Adonay para crear tu aplicación web. Desarrollador Web.">
     <main class="flex flex-col max-w-3xl mx-auto px-5 gap-16">
-        <SectionContainer class="items-center pt-20">
-            <Home/>
+        <SectionContainer class="items-center pt-40 flex-col sm:flex-row">
+            <Hero/>
         </SectionContainer>
-        <hr class="h-px border-0 bg-gray-700">
-        <SectionContainer id="experience" title="Experiencia" class="w-full flex-col">
+        <Line></Line>
+        <SectionContainer id="experience" title="Experiencia" class="flex-col">
             <BriefcaseIcon class="size-8" slot="icon"/>
             <Experience/>
         </SectionContainer>
-        <SectionContainer id="projects" title="Proyectos" class="w-full flex-col">
+        <SectionContainer id="projects" title="Proyectos" class="flex-col">
             <StarIcon class="size-8" slot="icon"/>
             <Projects/>
         </SectionContainer>
-        <SectionContainer id="contact" title="Contacto" class="w-full flex-col">
+        <!--<SectionContainer id="aboutme" title="Sobre mi" class="flex-col">-->
+        <!--    <UserIcon class="size-8" slot="icon"></UserIcon>-->
+        <!--    <AboutMe/>-->
+        <!--</SectionContainer>-->
+        <SectionContainer id="contact" title="Contacto" class="flex-col">
             <MailIcon class="size-8" slot="icon"/>
             <Mail/>
         </SectionContainer>

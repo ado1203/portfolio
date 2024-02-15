@@ -1,0 +1,24 @@
+---
+import Badge from '@/components/ui/Badge.astro'
+import Layout from '@/layouts/Layout.astro'
+import SectionContainer from '@/components/SectionContainer.astro'
+import GitHubIcon from "../components/icons/GitHub.astro";
+import SocialPill from "../components/ui/SocialPill.astro";
+---
+
+<Layout title="Design System Adonay's portfolio" description="El cátalogo de componentes de mi portfolio">
+    <SectionContainer class="w-full flex-col gap-y-10">
+        <article class="mb-10">
+            <h1 class="mb-4 text-xl font-semibold">&lt;Badge /&gt;</h1>
+            <Badge color="green">Buscando trabajo</Badge>
+            <Badge color="yellow">Actualmente</Badge>
+        </article>
+        <article class="mb-10">
+            <h1 class="mb-4 text-xl font-semibold">&lt;SocialPill /&gt;</h1>
+            <SocialPill href="https://github.com/adogrz">
+                <GitHubIcon class="size-4"/>
+                GitHub
+            </SocialPill>
+        </article>
+    </SectionContainer>
+</Layout>
