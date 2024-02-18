@@ -98,23 +98,22 @@ const PROJECTS = [
 
 {
     PROJECTS.map(({ title, description, image, background, link, code, tags}) => (
-        <article class="group grid gap-4 sm:gap-7 md:grid-cols-2">
-            <div
-                class={`relative w-[350px] h-[226px] bg-gray-700/50 bg-cover bg-center rounded-xl overflow-hidden`}
-                style={`background-image: url(${background});`}
-            >
-                <img
-                    class="absolute rounded-lg duration-500 ease transition translate-x-9 translate-y-9
-                                group-hover:translate-x-7 group-hover:translate-y-7"
-                    loading="lazy"
-                    src={image}
-                    alt={`Captura de pantalla del proyecto ${image}`}
-                />
+        <article class="group flex flex-col md:flex-row gap-4 md:gap-7">
+            <div class="w-full md:w-1/2">
+                <div class="rounded-xl overflow-hidden flex bg-indigo-100 dark:bg-gray-700/50 bg-cover bg-center" style={`background-image: url(${background});`}>
+                    <img
+                            alt={`Captura de pantalla del proyecto ${image}`}
+                            src={image}
+                            decoding="async"
+                            loading="lazy"
+                            class="h-auto md:h-full rounded-lg duration-500 transition-all translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7"
+                    />
+                </div>
             </div>
 
-            <div class="flex flex-col gap-2.5 justify-center">
-                <h3 class="font-bold text-xl text-primary-color">{title}</h3>
-                <p class="text-xs md:text-sm lg:text-base text-gray-400 text-pretty">{description}</p>
+            <div class="flex flex-col justify-center w-full md:w-1/2 md:max-w-lg gap-2.5">
+                <h3 class="font-bold text-2xl text-primary-color">{title}</h3>
+                <p class="text-base text-gray-400 text-pretty">{description}</p>
                 <ul class="flex gap-2 items-center mb-1">
                     {
                         tags.map(({ name, Icon }) => (

@@ -5,7 +5,7 @@ const {id, class: className, title} = Astro.props;
 <section id={id} class={`section w-full flex gap-5 scroll-mt-20 ${className}`}>
     {
         title && (
-            <header class="font-bold text-2xl text-gray-100 flex items-center gap-3">
+            <header class="font-bold text-3xl text-gray-100 flex items-center gap-3">
                 <slot name="icon"/>
                 <h2>{title}</h2>
             </header>
