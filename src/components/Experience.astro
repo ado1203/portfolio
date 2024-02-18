@@ -1,14 +1,39 @@
 ---
 import ExperienceItem from "./ExperienceItem.astro";
-import {EXPERIENCES} from "../../data/experience_data.ts";
+
+const EXPERIENCES = [
+    {
+        date: 'October 2023',
+        title: 'Application UI code in Tailwind CSS',
+        company: 'Tailwind Labs',
+        description: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
+        link: 'https://tailwindui.com',
+        actual: true,
+    },
+    {
+        date: 'April 2022',
+        title: 'E-Commerce UI code in Tailwind CSS',
+        company: 'Tailwind Labs',
+        description: 'Get started with dozens of web components and interactive elements built on top of Tailwind CSS.',
+        link: 'https://tailwindui.com',
+        actual: false,
+    },
+    {
+        date: 'March 2022',
+        title: 'Marketing UI design in Figma',
+        company: 'Tailwind Labs',
+        description: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
+        actual: false,
+    },
+]
 ---
 
-<ol class="relative border-s border-gray-200 ml-4">
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-4">
     {
         EXPERIENCES.map(experience => (
-                <li class="mb-10 ms-4">
-                    <ExperienceItem {...experience}/>
-                </li>
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience}/>
+            </li>
         ))
     }
 </ol>

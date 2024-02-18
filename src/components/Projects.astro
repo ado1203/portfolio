@@ -1,10 +1,153 @@
 ---
-import {PROJECTS} from '../../data/projects_data.astro';
-import ProjectItem from "./ProjectItem.astro";
+import AstroIcon from "./icons/tags/AstroIcon.astro";
+import CSSIcon from "./icons/tags/CSS.astro";
+import CodeIcon from "./icons/Code.astro";
+import DjangoIcon from "./icons/tags/Django.astro";
+import ExpressIcon from "./icons/tags/Express.astro";
+import HTMLIcon from "./icons/tags/HTML.astro";
+import JavaScriptIcon from "./icons/tags/JavaScript.astro";
+import LaravelIcon from "./icons/tags/Laravel.astro";
+import LinkButton from "./ui/LinkButton.astro";
+import LinkIcon from "./icons/Link.astro";
+import NextJSIcon from "./icons/tags/NextJS.astro";
+import ReactIcon from "./icons/tags/React.astro";
+import TagTooltip from "./ui/TagTooltip.astro";
+import TailwindCSSIcon from "./icons/tags/Tailwind.astro";
+import TypeScriptIcon from "./icons/tags/TypeScript.astro";
+import VercelIcon from "./icons/tags/Vercel.astro"
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        Icon: NextJSIcon,
+    },
+    TAILWIND: {
+        name: "Tailwind CSS",
+        Icon: TailwindCSSIcon,
+    },
+    REACT: {
+        name: "React.js",
+        Icon: ReactIcon,
+    },
+    TYPESCRIPT: {
+        name: "TypeScript",
+        Icon: TypeScriptIcon,
+    },
+    JAVASCRIPT: {
+        name: "JavaScript",
+        Icon: JavaScriptIcon,
+    },
+    ASTRO: {
+        name: "Astro",
+        Icon: AstroIcon,
+    },
+    HTML: {
+        name: "HTML",
+        Icon: HTMLIcon,
+    },
+    CSS: {
+        name: "CSS",
+        Icon: CSSIcon,
+    },
+    LARAVEL: {
+        name: "Laravel",
+        Icon: LaravelIcon,
+    },
+    DJANGO: {
+        name: "Django",
+        Icon: DjangoIcon,
+    },
+    EXPRESS: {
+        name: "Express.js",
+        Icon: ExpressIcon,
+    },
+    VERCEL: {
+        name: "Vercel",
+        Icon: VercelIcon,
+    }
+};
+
+const PROJECTS = [
+    {
+        title: "Flowbite",
+        description:
+            "Use the button component inside forms, as links, social login, payment options with support for multiple styles, colors, sizes, gradients, and shadows",
+        link: "https://flowbite.com/",
+        code: "https://github.com/themesberg/flowbite",
+        background: "/projects/blue_gradient_bg.webp",
+        image: "/projects/flowbite.webp",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.LARAVEL],
+    },
+    {
+        title: "svgl",
+        description:
+            "A beautiful library with SVG logos",
+        link: "https://svgl.vercel.app/",
+        code: "https://github.com/pheralb/svgl",
+        background: "/projects/pink_gradient_bg.webp",
+        image: "/projects/svgl.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.DJANGO, TAGS.VERCEL],
+    },
+    {
+        title: "Fontsource",
+        description:
+            "Download and self-host Open Source fonts in neatly bundled NPM packages.",
+        link: "https://fontsource.org/",
+        code: "https://github.com/fontsource/fontsource",
+        background: "/projects/violet_gradient_bg.webp",
+        image: "/projects/fontsource.webp",
+        tags: [TAGS.ASTRO, TAGS.REACT, TAGS.TAILWIND, TAGS.EXPRESS],
+    },
+];
 ---
 
 {
-    PROJECTS.map((project) =>
-    <ProjectItem {...project}/>
+    PROJECTS.map(({ title, description, image, background, link, code, tags}) => (
+        <article class="group flex flex-col md:flex-row gap-4 md:gap-7">
+            <div class="w-full md:w-1/2">
+                <div class="rounded-xl overflow-hidden flex bg-indigo-100 dark:bg-gray-700/50 bg-cover bg-center" style={`background-image: url(${background});`}>
+                    <img
+                            alt={`Captura de pantalla del proyecto ${image}`}
+                            src={image}
+                            decoding="async"
+                            loading="lazy"
+                            class="h-auto md:h-full rounded-lg duration-500 transition-all translate-x-9 translate-y-9 group-hover:translate-x-7 group-hover:translate-y-7"
+                    />
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center w-full md:w-1/2 md:max-w-lg gap-2.5">
+                <h3 class="font-bold text-2xl text-primary-color">{title}</h3>
+                <p class="text-base text-gray-400 text-pretty">{description}</p>
+                <ul class="flex gap-2 items-center mb-1">
+                    {
+                        tags.map(({ name, Icon }) => (
+                            <TagTooltip name={name}>
+                                <Icon class="size-6" />
+                            </TagTooltip>
+                        ))
+                    }
+                </ul>
+                <footer class="flex justify-start gap-3">
+                    {
+                        code && (
+                            <LinkButton href={code}>
+                                <CodeIcon class="size-5" />
+                                Codigo
+                            </LinkButton>
+                        )
+                    }
+                    {
+                        link && (
+                            <LinkButton href={link}>
+                                <LinkIcon class="size-5" />
+                                Sitio Web
+                            </LinkButton>
+                        )
+                    }
+                </footer>
+            </div>
+        </article>
         )
-    }
+    )
+}
