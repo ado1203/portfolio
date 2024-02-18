@@ -14,6 +14,7 @@ import ReactIcon from "./icons/tags/React.astro";
 import TagTooltip from "./ui/TagTooltip.astro";
 import TailwindCSSIcon from "./icons/tags/Tailwind.astro";
 import TypeScriptIcon from "./icons/tags/TypeScript.astro";
+import VercelIcon from "./icons/tags/Vercel.astro"
 
 const TAGS = {
     NEXT: {
@@ -60,6 +61,10 @@ const TAGS = {
         name: "Express.js",
         Icon: ExpressIcon,
     },
+    VERCEL: {
+        name: "Vercel",
+        Icon: VercelIcon,
+    }
 };
 
 const PROJECTS = [
@@ -81,7 +86,7 @@ const PROJECTS = [
         code: "https://github.com/pheralb/svgl",
         background: "/projects/pink_gradient_bg.webp",
         image: "/projects/svgl.webp",
-        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.DJANGO],
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT, TAGS.DJANGO, TAGS.VERCEL],
     },
     {
         title: "Fontsource",
