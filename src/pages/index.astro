@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import AboutMe from "../components/AboutMe.astro";
 import BriefcaseIcon from "@/components/icons/Briefcase.astro";
 import Experience from "@/components/Experience.astro";
 import Hero from "@/components/Hero.astro";
@@ -11,14 +10,13 @@ import MailIcon from "@/components/icons/Mail.astro";
 import Projects from "@/components/Projects.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import StarIcon from "@/components/icons/Star.astro";
-import UserIcon from "../components/icons/User.astro";
 ---
 
 <Layout
         title="Adonay Gutiérrez | Portfolio | Desarrollador y Programador Web"
         description="Contrata a Adonay para crear tu aplicación web. Desarrollador Web.">
     <main class="flex flex-col max-w-3xl mx-auto px-5 gap-16">
-        <SectionContainer class="items-center pt-40 flex-col sm:flex-row">
+        <SectionContainer class="items-center pt-32 sm:pt-40 flex-col sm:flex-row">
             <Hero/>
         </SectionContainer>
         <Line></Line>
@@ -30,10 +28,6 @@ import UserIcon from "../components/icons/User.astro";
             <StarIcon class="size-8" slot="icon"/>
             <Projects/>
         </SectionContainer>
-        <!--<SectionContainer id="aboutme" title="Sobre mi" class="flex-col">-->
-        <!--    <UserIcon class="size-8" slot="icon"></UserIcon>-->
-        <!--    <AboutMe/>-->
-        <!--</SectionContainer>-->
         <SectionContainer id="contact" title="Contacto" class="flex-col">
             <MailIcon class="size-8" slot="icon"/>
             <Mail/>

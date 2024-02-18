@@ -22,6 +22,7 @@ const {title, description} = Astro.props;
     <title>{title}</title>
 </head>
 <body class="relative text-black dark:text-white">
+<div class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.12)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] dark:bg-[#1d252c]"></div>
 <Header/>
 <slot/>
 <style is:global>
@@ -35,7 +36,7 @@ const {title, description} = Astro.props;
     }
 
     body {
-        background-color: #1d252c;
+        color: rgba(255, 255, 255, 0.9);
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -46,6 +47,12 @@ const {title, description} = Astro.props;
     @media (prefers-reduced-motion: reduce) {
         html {
             scroll-behavior: auto;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            color: #1d252c;
         }
     }
 </style>
