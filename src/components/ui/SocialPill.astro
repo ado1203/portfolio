@@ -1,10 +1,8 @@
 <a
-        class=
-            {`py-2.5 px-3 h-9 inline-flex items-center justify-center gap-2 bg-gray-800 cursor-pointer text-white rounded-lg border border-gray-600 shadow-sm text-sm font-medium transition hover:bg-gray-700 hover:border-gray-600`}
-        {...Astro.props}
-        target="_blank"
-        rel="noopener"
-        download
+    {...Astro.props}
+    class={`py-2.5 px-3 h-9 inline-flex items-center justify-center gap-2 text-sm font-medium cursor-pointer bg-background text-primary-foreground border border-slate-300/80 dark:border-gray-600 rounded-lg shadow-sm transition-colors ease-in hover:bg-slate-300/40 hover:text-accent-foreground dark:hover:bg-gray-700`}
+    target="_blank"
+    rel="noopener"
 >
     <slot/>
 </a>
